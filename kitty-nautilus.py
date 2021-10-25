@@ -8,7 +8,7 @@ import os, subprocess
 
 PROCESSNAME = 'kitty'
 
-class AlacrittyExtension(Nautilus.MenuProvider, GObject.GObject):
+class KittyExtension(Nautilus.MenuProvider, GObject.GObject):
     def __init__(self):
         pass
 
