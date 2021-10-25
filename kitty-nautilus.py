@@ -13,7 +13,7 @@ class AlacrittyExtension(Nautilus.MenuProvider, GObject.GObject):
         pass
 
     def launch_alacritty(self, menu: Nautilus.MenuItem, files):
-        path = ''
+        path = '.'
         args = '--working-directory'
 
         for file in files:
@@ -25,18 +25,18 @@ class AlacrittyExtension(Nautilus.MenuProvider, GObject.GObject):
 
     def get_file_items(self, window, files):
         item = Nautilus.MenuItem(
-            name="AlacrittyOpen",
-            label="Ouvrir dans Alacritty",
-            tip="Ouvre le dossier sélectionné dans alacritty"
+            name="KittyOpen",
+            label="Ouvrir dans kitty",
+            tip="Ouvre le dossier sélectionné dans kitty"
         )
         item.connect('activate', self.launch_alacritty, files)
         return [item]
 
     def get_background_items(self, window, file_):
         item = Nautilus.MenuItem(
-            name="AlacrittyOpenBackGround",
-            label="Ouvrir dans Alacritty",
-            tip="Ouvre le dossier courant dans alacritty"
+            name="KittyOpenBackGround",
+            label="Ouvrir dans Kitty",
+            tip="Ouvre le dossier courant dans kitty"
         )
         item.connect('activate', self.launch_alacritty, [file_])
         return [item]
