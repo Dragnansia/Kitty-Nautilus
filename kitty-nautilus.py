@@ -12,7 +12,7 @@ class KittyExtension(Nautilus.MenuProvider, GObject.GObject):
     def __init__(self):
         pass
 
-    def launch_alacritty(self, menu: Nautilus.MenuItem, files):
+    def launch_kitty(self, menu: Nautilus.MenuItem, files):
         path = '.'
         args = '--working-directory'
 
@@ -29,7 +29,7 @@ class KittyExtension(Nautilus.MenuProvider, GObject.GObject):
             label="Ouvrir dans kitty",
             tip="Ouvre le dossier sélectionné dans kitty"
         )
-        item.connect('activate', self.launch_alacritty, files)
+        item.connect('activate', self.launch_kitty, files)
         return [item]
 
     def get_background_items(self, window, file_):
@@ -38,5 +38,5 @@ class KittyExtension(Nautilus.MenuProvider, GObject.GObject):
             label="Ouvrir dans Kitty",
             tip="Ouvre le dossier courant dans kitty"
         )
-        item.connect('activate', self.launch_alacritty, [file_])
+        item.connect('activate', self.launch_kitty, [file_])
         return [item]
